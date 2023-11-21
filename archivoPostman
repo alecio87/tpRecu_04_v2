@@ -1,0 +1,297 @@
+{
+	"info": {
+		"_postman_id": "c9a5896b-ad7a-4ec4-8b29-44950fbf4748",
+		"name": "TP_Recuperatorio_Mod_04",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "11177950"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/users"
+					},
+					"response": []
+				},
+				{
+					"name": "One User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/users/id"
+					},
+					"response": []
+				},
+				{
+					"name": "User Change",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"ale@gmail.com\",\r\n  \"password\": \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/users/id"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3000/api/users/id"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"dani@gmail.com\",\r\n    \"password\": \"1234\"  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/signup"
+					},
+					"response": []
+				},
+				{
+					"name": "Sign In",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"ale@gmail.com\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/signin"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Receta",
+			"item": [
+				{
+					"name": "All Recetas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImVtYWlsIjoic2VyZ2lvQGdtYWlsLmNvbSIsImlhdCI6MTcwMDUyMTcwMiwiZXhwIjoxNzAwNTIyMDAyfQ.-GbBW6mPqeRQPsiieK5BckQSREa6mmXzZkpxvjKSXDM"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/recetas"
+					},
+					"response": []
+				},
+				{
+					"name": "One Receta",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImVtYWlsIjoic2VyZ2lvQGdtYWlsLmNvbSIsImlhdCI6MTcwMDUyMTcwMiwiZXhwIjoxNzAwNTIyMDAyfQ.-GbBW6mPqeRQPsiieK5BckQSREa6mmXzZkpxvjKSXDM"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/receta/id"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Receta",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImVtYWlsIjoiYWxlQGdtYWlsLmNvbSIsImlhdCI6MTcwMDU3OTk3MCwiZXhwIjoxNzAwNTgwMjcwfQ.PBpCwpKbz0E9k0RteoM2rE_aWQe4czjx50dKiCXCQxg"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"nombre\": \"Pastel\",\r\n    \"descripcion\": \"Un delicioso pastel de chocolate con cobertura de crema\",\r\n    \"imagen\": \"https://ejemplo.com/imagen_pastel.jpg\",\r\n    \"ingredientes\": \"200g de chocolate, 150g de azúcar, 3 huevos, 100g de harina\",\r\n    \"preparacion\": \"1. Funde el chocolate en un recipiente al baño María. 2. Bate los huevos y el azúcar en un tazón. 3. Agrega el chocolate derretido a la mezcla y mezcla bien. 4. Añade la harina tamizada y revuelve.\",\r\n    \"preparacionDeTiempo\": 60\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/receta/id"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Receta",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImVtYWlsIjoiYWxlQGdtYWlsLmNvbSIsImlhdCI6MTcwMDU3OTk3MCwiZXhwIjoxNzAwNTgwMjcwfQ.PBpCwpKbz0E9k0RteoM2rE_aWQe4czjx50dKiCXCQxg"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"nombre\": \"Sopa de Mani\",\r\n    \"descripcion\": \"Una sopa de tomate casera con un toque de albahaca fresca.\",\r\n    \"imagen\": \"https://ejemplo.com/sopa_tomate.jpg\",\r\n    \"ingredientes\": \"Tomates maduros, cebolla, ajo, caldo de pollo, albahaca fresca, sal, pimienta, aceite de oliva\",\r\n    \"preparacion\": \"1. Freir la cebolla y el ajo en aceite de oliva hasta que estén dorados 2. Agrega los tomates maduros y cocina hasta que estén tiernos 3. Vierte el caldo de pollo y deja hervir 4. Añade la albahaca fresca, la sal y la pimienta al gusto 5. Cocina a fuego lento durante 30 minutos 6. Sirve caliente y disfruta.\",\r\n    \"preparacionDeTiempo\": 40\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/receta/id"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Receta",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImVtYWlsIjoiYWxlQGdtYWlsLmNvbSIsImlhdCI6MTcwMDU4MDMxOSwiZXhwIjoxNzAwNTgwNjE5fQ.FqgS00GTj4afzNNrGG-D3KrdQBLZavamWgynd5CDMdI"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3000/api/receta/id"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "All Perfiles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImVtYWlsIjoiYWxlQGdtYWlsLmNvbSIsImlhdCI6MTcwMDU3OTY1OSwiZXhwIjoxNzAwNTc5OTU5fQ.Vjw-x1B09G4yhzfEZgR4xDKcScBjkfpYPR1D9Qhzouw"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/perfiles"
+					},
+					"response": []
+				},
+				{
+					"name": "One Perfil",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImVtYWlsIjoic2VyZ2lvQGdtYWlsLmNvbSIsImlhdCI6MTcwMDUyNDkyOSwiZXhwIjoxNzAwNTI1MjI5fQ.TAaG95H5iBAaAJvD5sQV8wBiGHTPOgFtmorwZZDq9-4"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/perfil/id"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImVtYWlsIjoiYWxlQGdtYWlsLmNvbSIsImlhdCI6MTcwMDU3OTY1OSwiZXhwIjoxNzAwNTc5OTU5fQ.Vjw-x1B09G4yhzfEZgR4xDKcScBjkfpYPR1D9Qhzouw"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Emanuel\",\r\n    \"apellido\": \"Fernandez\",\r\n    \"dni\": \"50123456\",\r\n    \"genero\": \"Masculino\",\r\n    \"direccion\": \"Salta 500\",\r\n    \"ciudad\": \"San Salvador de Jujuy\",\r\n    \"pais\": \"Argentina\",\r\n    \"celular\": \"3884123456\",\r\n    \"foto\": \"ef.jpg\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/perfil/id"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Perfil",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImVtYWlsIjoiYWxlQGdtYWlsLmNvbSIsImlhdCI6MTcwMDU3OTY1OSwiZXhwIjoxNzAwNTc5OTU5fQ.Vjw-x1B09G4yhzfEZgR4xDKcScBjkfpYPR1D9Qhzouw"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Alejandro\",\r\n    \"apellido\": \"Fernandes\",\r\n    \"dni\": \"42123456\",\r\n    \"genero\": \"Masculino\",\r\n    \"direccion\": \"Moreno 300\",\r\n    \"ciudad\": \"Perico\",\r\n    \"pais\": \"Argentina\",\r\n    \"celular\": \"3884123456\",\r\n    \"foto\": \"af.jpg\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/perfil/id"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Perfil",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImVtYWlsIjoiYWxlQGdtYWlsLmNvbSIsImlhdCI6MTcwMDU3OTY1OSwiZXhwIjoxNzAwNTc5OTU5fQ.Vjw-x1B09G4yhzfEZgR4xDKcScBjkfpYPR1D9Qhzouw"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3000/api/perfil/id"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

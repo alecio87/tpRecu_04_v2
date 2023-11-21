@@ -1,0 +1,205 @@
+openapi: 3.0.0
+info:
+  title: Recetas API
+  version: 1.0.0
+paths:
+  /api/recetas:
+    get:
+      summary: Obtener todas las recetas
+      tags:
+        - Recetas
+      security:
+        - JWT: []  # Aquí se especifica el nombre del esquema de seguridad
+      responses:
+        '200':
+          description: Recetas obtenidas exitosamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Receta'
+        '500':
+          description: Error interno del servidor
+  /api/receta/{recetaId}:
+    get:
+      summary: Obtener una receta específica
+      tags:
+        - Recetas
+      parameters:
+        - name: recetaId
+          in: path
+          required: true
+          description: ID de la receta
+          schema:
+            type: integer
+      security:
+        - JWT: []  # Aquí se especifica el nombre del esquema de seguridad
+      responses:
+        '200':
+          description: Receta obtenida exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Receta'
+        '404':
+          description: Receta no encontrada
+        '500':
+          description: Error interno del servidor
+    put:
+      summary: Actualizar una receta específica
+      tags:
+        - Recetas
+      parameters:
+        - name: recetaId
+          in: path
+          required: true
+          description: ID de la receta
+          schema:
+            type: integer
+      security:
+        - JWT: []  # Aquí se especifica el nombre del esquema de seguridad
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecetaUpdate'
+      responses:
+        '200':
+          description: Receta actualizada exitosamente
+        '404':
+          description: Receta no encontrada
+        '500':
+          description: Error interno del servidor
+    delete:
+      summary: Eliminar una receta específica
+      tags:
+        - Recetas
+      parameters:
+        - name: recetaId
+          in: path
+          required: true
+          description: ID de la receta
+          schema:
+            type: integer
+      security:
+        - JWT: []  # Aquí se especifica el nombre del esquema de seguridad
+      responses:
+        '204':
+          description: Receta eliminada exitosamente
+        '404':
+          description: Receta no encontrada
+        '500':
+          description: Error interno del servidor
+  /api/receta/{userId}:
+    post:
+      summary: Crear una nueva receta para un usuario específico
+      tags:
+        - Recetas
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          description: ID del usuario al que se asociará la receta
+          schema:
+            type: integer
+            example: 123
+      security:
+        - JWT: []  # Aquí se especifica el nombre del esquema de seguridad
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecetaCreate'
+      responses:
+        '201':
+          description: Receta creada exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Receta'
+        '404':
+          description: Usuario no encontrado
+        '500':
+          description: Error interno del servidor
+components:
+  schemas:
+    Receta:
+      type: object
+      properties:
+        id:
+          type: integer
+        nombre:
+          type: string
+        descripcion:
+          type: string
+        imagen:
+          type: string
+        ingredientes:
+          type: string
+        preparacion:
+          type: string
+        preparacionDeTiempo:
+          type: string
+        user:
+          $ref: '#/components/schemas/User'
+      example:
+        id: 1
+        nombre: "Receta 1"
+        descripcion: "Descripción de la receta"
+        imagen: "/path/to/image.jpg"
+        ingredientes: "Ingredientes de la receta"
+        preparacion: "Pasos de preparación"
+        preparacionDeTiempo: 50
+        user: {}
+    RecetaCreate:
+      type: object
+      properties:
+        nombre:
+          type: string
+        descripcion:
+          type: string
+        imagen:
+          type: string
+        ingredientes:
+          type: string
+        preparacion:
+          type: string
+        preparacionDeTiempo:
+          type: string
+      example:
+        nombre: "Receta 1"
+        descripcion: "Descripción de la receta"
+        imagen: "/path/to/image.jpg"
+        ingredientes: "Ingredientes de la receta"
+        preparacion: "Pasos de preparación"
+        preparacionDeTiempo: 50
+    RecetaUpdate:
+      type: object
+      properties:
+        nombre:
+          type: string
+        descripcion:
+          type: string
+        imagen:
+          type: string
+        ingredientes:
+          type: string
+        preparacion:
+          type: string
+        preparacionDeTiempo:
+          type: string
+      example:
+        nombre: "Receta actualizada"
+        descripcion: "Nueva descripción"
+        imagen: "/path/to/new-image.jpg"
+        ingredientes: "Nuevos ingredientes"
+        preparacion: "Nuevos pasos de preparación"
+        preparacionDeTiempo: 30
+  securitySchemes:
+    JWT:
+      type: apiKey
+      in: header
+      name: Authorization

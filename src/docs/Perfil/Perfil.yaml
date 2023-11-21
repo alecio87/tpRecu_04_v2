@@ -1,0 +1,231 @@
+openapi: 3.0.0
+info:
+  title: Recetas API
+  version: 1.0.0
+paths:
+  /api/perfiles:
+    get:
+      summary: Obtener todos los perfiles
+      tags:
+        - Perfiles
+      security:
+        - JWT: []  # Aquí se especifica el nombre del esquema de seguridad
+      responses:
+        '200':
+          description: Perfiles obtenidos exitosamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Perfil'
+        '500':
+          description: Error interno del servidor
+  /api/perfil/{perfilId}:
+    get:
+      summary: Obtener un perfil específico
+      tags:
+        - Perfiles
+      parameters:
+        - name: perfilId
+          in: path
+          required: true
+          description: ID del perfil
+          schema:
+            type: integer
+      security:
+        - JWT: []  # Aquí se especifica el nombre del esquema de seguridad
+      responses:
+        '200':
+          description: Perfil obtenido exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Perfil'
+        '404':
+          description: Perfil no encontrado
+        '500':
+          description: Error interno del servidor
+    put:
+      summary: Actualizar un perfil específico
+      tags:
+        - Perfiles
+      parameters:
+        - name: perfilId
+          in: path
+          required: true
+          description: ID del perfil
+          schema:
+            type: integer
+      security:
+        - JWT: []  # Aquí se especifica el nombre del esquema de seguridad
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PerfilUpdate'
+      responses:
+        '200':
+          description: Perfil actualizado exitosamente
+        '404':
+          description: Perfil no encontrado
+        '500':
+          description: Error interno del servidor
+    delete:
+      summary: Eliminar un perfil específico
+      tags:
+        - Perfiles
+      parameters:
+        - name: perfilId
+          in: path
+          required: true
+          description: ID del perfil
+          schema:
+            type: integer
+      security:
+        - JWT: []  # Aquí se especifica el nombre del esquema de seguridad
+      responses:
+        '204':
+          description: Perfil eliminado exitosamente
+        '404':
+          description: Perfil no encontrado
+        '500':
+          description: Error interno del servidor
+    paths:
+  /api/perfil/{userId}:
+    post:
+      summary: Crear un nuevo perfil para un usuario específico
+      tags:
+        - Perfiles
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          description: ID del usuario al que se asociará el perfil
+          schema:
+            type: integer
+            example: 123
+      security:
+        - JWT: []  # Aquí se especifica el nombre del esquema de seguridad
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PerfilCreate'
+      responses:
+        '201':
+          description: Perfil creado exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Perfil'
+        '404':
+          description: Usuario no encontrado
+components:
+  schemas:
+    Perfil:
+      type: object
+      properties:
+        id:
+          type: integer
+        nombre:
+          type: string
+        apellido:
+          type: string
+        dni:
+          type: string
+        genero:
+          type: string
+        direccion:
+          type: string
+        ciudad:
+          type: string
+        pais:
+          type: string
+        celular:
+          type: string
+        foto:
+          type: string
+        user:
+          $ref: '#/components/schemas/User'
+      example:
+        id: 1
+        nombre: Juan
+        apellido: Perez
+        dni: "12345678"
+        genero: Masculino
+        direccion: Calle 123
+        ciudad: Ciudad
+        pais: País
+        celular: "123456789"
+        foto: "/path/to/photo.jpg"
+        user: {}
+    PerfilCreate:
+      type: object
+      properties:
+        nombre:
+          type: string
+        apellido:
+          type: string
+        dni:
+          type: string
+        genero:
+          type: string
+        direccion:
+          type: string
+        ciudad:
+          type: string
+        pais:
+          type: string
+        celular:
+          type: string
+        foto:
+          type: string
+      example:
+        nombre: Juan
+        apellido: Perez
+        dni: "12345678"
+        genero: Masculino
+        direccion: Calle 123
+        ciudad: Ciudad
+        pais: País
+        celular: "123456789"
+        foto: "/path/to/photo.jpg"
+    PerfilUpdate:
+      type: object
+      properties:
+        nombre:
+          type: string
+        apellido:
+          type: string
+        dni:
+          type: string
+        genero:
+          type: string
+        direccion:
+          type: string
+        ciudad:
+          type: string
+        pais:
+          type: string
+        celular:
+          type: string
+        foto:
+          type: string
+      example:
+        nombre: Juan
+        apellido: Perez
+        dni: "12345678"
+        genero: Masculino
+        direccion: Calle 123
+        ciudad: Ciudad
+        pais: País
+        celular: "123456789"
+        foto: "/path/to/photo.jpg"
+  securitySchemes:
+    JWT:
+      type: apiKey
+      in: header
+      name: Authorization

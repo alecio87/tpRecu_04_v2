@@ -1,0 +1,65 @@
+Clase 04 Fecha 20-05-2023
+comandos
+		Posicionar en la carpeta docker-compose\mysql 
+		---> docker-compose up -d     tambien puede ser  ---> docker compose up -d
+		Posicionar en la carpeta raiz
+		---> npm init --y
+		---> npm i express --save
+		---> npm i typescript -D
+		---> npx tsc --init
+		En el archivo tsconfig.json, buscar el archivo 
+		rootDir descomentarlo y tendria que quedar asi "rootDir": "./src"
+		En el archivo tsconfig.json, buscar el archivo 
+		outDir descomentarlo y tendria que quedar asi "outDir": "./dist"
+		---> npx tsc   te crea la carpeta dist
+		---> node dist/index.js levanta  el proyecto
+		---> npm i ts-node-dev -D
+		En el archivo package.json modificar el scripts
+		"scripts": {
+					"dev": "ts-node-dev --respawn src/index.ts"
+		},
+		npm run dev  ******para levantar el proyecto*******
+
+Clase 05 Fecha 03-06-2023
+comandos
+		---> npm i morgan cors
+		---> npm i @types/express
+		---> npm i @types/morgan @types/cors -D
+		---> npm install typeorm --save
+		---> npm install reflect-metadata --save
+		---> npm install @types/node --save-dev
+		---> npm install mysql --save
+		En el archivo tsconfig.json, buscar el archivo 
+		experimentalDecorators descomentarlo y tendria que quedar asi "experimentalDecorators": true,
+		En el archivo tsconfig.json, buscar el archivo 
+		emitDecoratorMetadata descomentarlo y tendria que quedar asi "emitDecoratorMetadata": true,
+		En el archivo tsconfig.json, buscar el archivo 
+		strictPropertyInitialization descomentarlo y tendria que quedar asi "strictPropertyInitialization": false,
+		npm run dev  ******para levantar el proyecto*******		
+		
+Clase 06 Fecha 10-06-2023
+comandos
+		Middleware sobre el proyecto clase06_middleware
+		---> npm init --y
+		---> npm i express --save
+		instalar extension node-snippets
+		
+		JWT  sobre el proyecto tp04
+		---> npm i passport passport-local passport-jwt jsonwebtoken bcrypt
+		---> npm i -D @types/passport @types/passport-local  @types/passport-jwt @types/jsonwebtoken @types/bcrypt
+		---> npm install dotenv
+		
+		instalar dontenv y mover de passport (VARIABLE DE AMBIENTE)
+		const opts: StrategyOptions = {
+			jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+			secretOrKey: 'somesecrettoken'
+		};
+
+Clase 07 Fecha 01-07-23
+comandos
+		instalar Mintlify Doc Writer for Python, JavaScript, TypeScript, C++, PHP, Java, C#, Ruby & more
+		---> npm install swagger-jsdoc swagger-ui-express
+		---> npm i --save-dev @types/swagger-jsdoc
+		---> npm i --save-dev @types/swagger-ui-express
+
+		
